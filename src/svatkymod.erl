@@ -4,12 +4,14 @@
 
 
 svatky() ->
-    [#svatek{month = 1, day = 1, name = "Jméno0101"},
-     #svatek{month = 2, day = 2, name = "Jméno0102"}].
+    [#svatek{month = 1, day = 1, name = <<"Jméno0101"/utf8>>},
+     #svatek{month = 1, day = 2, name = <<"ěščřžýáíé"/utf8>>},
+     #svatek{month = 1, day = 2, name = <<"Jméno0102b"/utf8>>},
+     #svatek{month = 2, day = 1, name = <<"Jméno0201"/utf8>>}].
 
 
 out() ->
-    {_, Month, Day} = erlang:date(),
+    {_Year, Month, Day} = erlang:date(),
     out(Month, Day).
 
 
@@ -18,5 +20,7 @@ out(Name) ->
 
 
 out(Month, Day) ->
-    {Month, Day}.
+    Svatky = svatky(),
+    Pred = fun(Svatek) -> Svatek#svatek.month =:= Month andalso Svatek#svatek.day =:= Day end,
+    lists:filter(Pred, Svatky).
     
