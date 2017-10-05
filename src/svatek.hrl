@@ -1,0 +1,1 @@
+-record(svatek, {month, day, name}).
