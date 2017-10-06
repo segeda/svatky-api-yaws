@@ -9,7 +9,7 @@ out(Arg) ->
         'GET' ->
             Svatky = svatkymod:out(1, 2),
             Print = fun(Svatek) -> yaws_api:f("~2..0w~2..0w;~s~n", [Svatek#svatek.day, Svatek#svatek.month, binary_to_list(Svatek#svatek.name)]) end,
-            {content, "text/plain", lists:map(Print, Svatky)};
+            {content, "text/plain; charset=utf-8", lists:map(Print, Svatky)};
         _Else ->
             [{status, 405},
              {header, "Allow: GET"},
