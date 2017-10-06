@@ -10,7 +10,8 @@ out() ->
 
 
 out(Name) ->
-    {Name}.
+    Pred = fun(Svatek) -> Svatek#svatek.name =:= Name end,
+    lists:filter(Pred, ?CS).
 
 
 out(Month, Day) ->
