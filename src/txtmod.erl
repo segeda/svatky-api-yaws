@@ -5,13 +5,7 @@
 
 
 out(Arg) ->
-    case (Arg#arg.req#http_request.method) of
-        'GET' ->
-            Svatky = svatkymod:out(),
-            Print = fun(Svatek) -> yaws_api:f("~2..0w~2..0w;~s~n", [Svatek#svatek.day, Svatek#svatek.month, binary_to_list(Svatek#svatek.name)]) end,
-            {content, "text/plain; charset=utf-8", lists:map(Print, Svatky)};
-        _Else ->
-            [{status, 405},
-             {header, "Allow: GET"},
-             {html, "Method Not Allowed"}]
-    end.
+    Print = fun(Svatek) -> yaws_api:f("~2..0w~2..0w;~s~n", [Svatek#svatek.day, Svatek#svatek.month, binary_to_list(Svatek#svatek.name)]) end,
+    Svatky = apimod:svatky(Arg),
+    Content = lists:map(Print, Svatky),
+    apimod:out(Arg, <<"text/plain; charset=utf-8">>, Content).
