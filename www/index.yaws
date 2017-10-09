@@ -17,13 +17,13 @@
 <body>
     <section>
         <header>
-            <h1>Svátky API</h1>
+            <h1>Svátky API v2</h1>
         </header>
         <section>
             <header>
                 <h2>URL</h2>
             </header>
-            <code>https://svatky.adresa.info/<var>formát</var></code>
+            <code>https://svatky.adresa.info/v2/<var>formát</var></code>
         </section>
         <section>
             <header>
@@ -42,10 +42,12 @@
                 <h2>Parametry</h2>
             </header>
             <dl>
-                <dt><code>date</code></dt>
-                <dd>datum ve formátu DDMM</dd>
                 <dt><code>name</code></dt>
                 <dd>jméno</dd>
+                <dt><code>month</code></dt>
+                <dd>měsíc</dd>
+                <dt><code>day</code></dt>
+                <dd>den</dd>
                 <dt><code>lang</code></dt>
                 <dd>cs || sk</dd>
             </dl>
