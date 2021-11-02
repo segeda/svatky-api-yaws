@@ -23,6 +23,7 @@
             #svatek{month = 9, day = 2, name = <<"Adéla"/utf8>>},
             #svatek{month = 10, day = 2, name = <<"Olívie"/utf8>>},
             #svatek{month = 10, day = 2, name = <<"Oliver"/utf8>>},
+            #svatek{month = 11, day = 2, name = <<"Tobiáš"/utf8>>},
             #svatek{month = 12, day = 2, name = <<"Blanka"/utf8>>},
             #svatek{month = 1, day = 3, name = <<"Radmila"/utf8>>},
             #svatek{month = 2, day = 3, name = <<"Blažej"/utf8>>},
